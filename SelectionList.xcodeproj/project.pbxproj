@@ -10,6 +10,7 @@
 		0750A1E227E0838C002C156F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0750A1E127E0838C002C156F /* ViewController.swift */; };
 		0777EACB27EB062700BA3273 /* SelectableListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0777EACA27EB062700BA3273 /* SelectableListCell.swift */; };
 		0777EACD27EB130F00BA3273 /* StandingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0777EACC27EB130F00BA3273 /* StandingsViewController.swift */; };
+		0777EACF27EB211E00BA3273 /* Championship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0777EACE27EB211E00BA3273 /* Championship.swift */; };
 		07A5C09327EB037E00764B2C /* SelectionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A5C09227EB037E00764B2C /* SelectionListView.swift */; };
 		07A5C09527EB03F600764B2C /* SelectionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A5C09427EB03F600764B2C /* SelectionList.swift */; };
 		07AFACB827DBAB5F0049A57C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AFACB727DBAB5F0049A57C /* AppDelegate.swift */; };
@@ -25,6 +26,7 @@
 		0750A1E127E0838C002C156F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0777EACA27EB062700BA3273 /* SelectableListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableListCell.swift; sourceTree = "<group>"; };
 		0777EACC27EB130F00BA3273 /* StandingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsViewController.swift; sourceTree = "<group>"; };
+		0777EACE27EB211E00BA3273 /* Championship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Championship.swift; sourceTree = "<group>"; };
 		07A5C09227EB037E00764B2C /* SelectionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionListView.swift; sourceTree = "<group>"; };
 		07A5C09427EB03F600764B2C /* SelectionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionList.swift; sourceTree = "<group>"; };
 		07AFACB427DBAB5F0049A57C /* SelectionList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SelectionList.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +78,7 @@
 				07AFACCB27DBABC20049A57C /* Selectable.swift */,
 				0777EACA27EB062700BA3273 /* SelectableListCell.swift */,
 				07AFACCD27DBAC2C0049A57C /* Season.swift */,
+				0777EACE27EB211E00BA3273 /* Championship.swift */,
 				0777EACC27EB130F00BA3273 /* StandingsViewController.swift */,
 				0750A1E127E0838C002C156F /* ViewController.swift */,
 				07AFACC027DBAB600049A57C /* Assets.xcassets */,
@@ -156,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07A5C09527EB03F600764B2C /* SelectionList.swift in Sources */,
+				0777EACF27EB211E00BA3273 /* Championship.swift in Sources */,
 				0750A1E227E0838C002C156F /* ViewController.swift in Sources */,
 				07A5C09327EB037E00764B2C /* SelectionListView.swift in Sources */,
 				07AFACBC27DBAB5F0049A57C /* SelectionListViewController.swift in Sources */,

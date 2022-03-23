@@ -74,7 +74,7 @@ class SelectionListViewController<SelectableValue: Selectable>: ViewController<S
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectableListCell", for: indexPath) as! SelectableListCell
         let value = values[indexPath.item]
         let isSelected = (value == selectedValue)
-        cell.render(text: value.title, isSelected: isSelected)
+        cell.render(icon: value.icon, text: value.title, isSelected: isSelected)
         return cell
     }
     

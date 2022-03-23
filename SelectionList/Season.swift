@@ -1,10 +1,14 @@
-import Foundation
+import UIKit
 
 typealias Season = Int
 
 extension Season: Selectable {    
     var title: String {
         return String(self)
+    }
+    
+    var icon: UIImage? {
+        return nil
     }
 }
 

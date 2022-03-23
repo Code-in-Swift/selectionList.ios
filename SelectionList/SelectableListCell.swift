@@ -1,9 +1,17 @@
 import UIKit
 
 class SelectableListCell: UICollectionViewCell {
+    let iconImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.tintColor = .systemBlue
+        imageView.setContentHuggingPriority(.required, for: .horizontal)
+        
+        return imageView
+    }()
+    
     let label: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 17, weight: .semibold)
+        label.font = .systemFont(ofSize: 17, weight: .regular)
         label.textColor = .darkText
         label.textAlignment = .left
         label.numberOfLines = 0
@@ -11,26 +19,25 @@ class SelectableListCell: UICollectionViewCell {
         return label
     }()
     
-    let imageView: UIImageView = {
+    let checkmarkImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "icon.checkmark")
+        imageView.image = UIImage(systemName: "checkmark")
         imageView.contentMode = .center
         imageView.tintColor = .systemBlue
-        imageView.setContentHuggingPriority(.required, for: .horizontal)
-        
+            
         return imageView
     }()
     
     lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [
-            label,
-            imageView
+            iconImageView,
+            label
         ])
         
         stackView.distribution = .fill
         stackView.alignment = .top
         stackView.axis = .horizontal
-        stackView.spacing = 12
+        stackView.spacing = 8
         
         return stackView
     }()
@@ -44,13 +51,26 @@ class SelectableListCell: UICollectionViewCell {
         
     override init(frame: CGRect) {
         super.init(frame: frame)
+        preservesSuperviewLayoutMargins = true
+        
+        iconImageView.translatesAutoresizingMaskIntoConstraints = false
+        iconImageView.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        iconImageView.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
+        addSubview(checkmarkImageView)
+        checkmarkImageView.translatesAutoresizingMaskIntoConstraints = false
+        checkmarkImageView.topAnchor.constraint(equalTo: topAnchor, constant: 11).isActive = true
+        checkmarkImageView.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor, constant: 0).isActive = true
+        checkmarkImageView.widthAnchor.constraint(equalToConstant: 22).isActive = true
+        checkmarkImageView.heightAnchor.constraint(equalToConstant: 22).isActive = true
+        
         
         addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.topAnchor.constraint(equalTo: topAnchor, constant: 12).isActive = true
         stackView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor, constant: 0).isActive = true
         stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor, constant: 0).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: checkmarkImageView.leadingAnchor, constant: -10).isActive = true
         
         addSubview(separator)
         separator.translatesAutoresizingMaskIntoConstraints = false
@@ -64,12 +84,16 @@ class SelectableListCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func render(text: String, isSelected: Bool) {
-        label.text = text
-        label.font = isSelected
-        ? .systemFont(ofSize: 17, weight: .medium)
-        : .systemFont(ofSize: 17, weight: .regular)
+    func render(icon: UIImage?, text: String, isSelected: Bool) {
+        if let icon = icon {
+            iconImageView.image = icon
+            iconImageView.isHidden = false
+        }
+        else {
+            iconImageView.isHidden = true
+        }
         
-        imageView.isHidden = !isSelected
+        label.text = text
+        checkmarkImageView.isHidden = !isSelected
     }
 }

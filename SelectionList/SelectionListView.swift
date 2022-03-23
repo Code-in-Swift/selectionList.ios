@@ -13,6 +13,7 @@ class SelectionListView: UIView {
         backgroundColor = .white
         
         addSubview(collectionView)
+        collectionView.preservesSuperviewLayoutMargins = true
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true

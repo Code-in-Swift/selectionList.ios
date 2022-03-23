@@ -1,18 +1,21 @@
 import UIKit
 
 class StandingsViewController: ViewController<UIView> {
-    var selectedSeason: Season? {
+    var selectedChampionship: Championship = .drivers {
         didSet {
-            var title: String {
-                guard let selectedSeason = selectedSeason else {
-                    return "Select Season"
-                }
-
-                return String(selectedSeason)
-            }
-            
+            navigationItem.leftBarButtonItem = UIBarButtonItem(
+                title: selectedChampionship.title,
+                style: .done,
+                target: self,
+                action: #selector(changeChampionship)
+            )
+        }
+    }
+    
+    var selectedSeason: Season = .current {
+        didSet {
             navigationItem.rightBarButtonItem = UIBarButtonItem(
-                title: title,
+                title: selectedSeason.title,
                 style: .done,
                 target: self,
                 action: #selector(changeSeason)
@@ -32,7 +35,30 @@ class StandingsViewController: ViewController<UIView> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        selectedChampionship = .drivers
         selectedSeason = .current
+    }
+    
+    @objc
+    private func changeChampionship(_ sender: UIBarButtonItem) {
+        let selectionList = SelectionList<Championship>(
+            title: "Championship",
+            values: [ .drivers, .constructors ],
+            selectedValue: selectedChampionship
+        )
+        
+        let handler: SelectionListViewController<Championship>.Handler = { championship, viewController in
+            self.selectedChampionship = championship
+            viewController.dismiss(animated: true)
+        }
+        
+        let vc = SelectionListViewController(
+            selectionList: selectionList,
+            handler: handler
+        )
+        
+        let nc = UINavigationController(rootViewController: vc)
+        present(nc, animated: true)
     }
     
     @objc
