@@ -1,19 +1,9 @@
-//
-//  ViewController.swift
-//  SelectionList
-//
-//  Created by Захаров Вячеслав on 11.03.2022.
-//
-
 import UIKit
 
-class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+class ViewController<UI: UIView>: UIViewController {
+    let ui = UI(frame: UIScreen.main.bounds)
+    
+    override func loadView() {
+        self.view = ui
     }
-
-
 }
-
